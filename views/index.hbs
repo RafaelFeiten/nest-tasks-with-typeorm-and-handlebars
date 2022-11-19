@@ -1,0 +1,39 @@
+{{> header}}
+  <div class="container mb-5 mt-5"> 
+    <h1>Lista de tarefas</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Tarefa</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tasks}}
+        <tr>
+          <th scope="row">
+            <a href="/tarefas/{{this.id}}">
+              {{this.id}}
+            </a>
+          </th>
+          <td>{{this.title}}</td>
+          <td>{{this.status}}</td>
+          <td>
+            <a href="/tarefas/{{this.id}}/editar" class="btn btn-primary">
+              Editar
+            </a>
+            <form action="/tarefas/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit" value="submit" onclick="return confirm('Tem certeza de que deseja excluir o registro?')" class="btn btn-danger">
+                Excluir
+              </button>
+            </form>
+        </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <a href="/tarefas/criar" class="btn btn-success">Adicionar nova tarefa</a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+{{> footer}}

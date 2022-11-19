@@ -1,0 +1,15 @@
+{{> header}}
+
+<div class ="container" style="width: 30%; margin:100px auto 0 auto">
+    <div class ="card">
+        <h5 class="card-header"> Detalhes da tarefa</h5>
+        <div class="card-body">
+            <p><strong>ID: </strong>{{task.id}}</p>
+            <p><strong>Tarefa: </strong>{{task.title}}</p>
+            <p><strong>Descricao: </strong>{{task.description}}</p>
+            <p><strong>Status: </strong>{{task.status}}</p>
+        </div>
+        <a class="btn btn-success" href="/tarefas"> Voltar </a>
+    </div> 
+</div>
+{{> footer}}
